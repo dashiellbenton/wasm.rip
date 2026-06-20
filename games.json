@@ -191,5 +191,13 @@
     "imageUrl": "img/peak.png",
     "porter": "dasher",
     "featured": true
+  },
+  {
+    "id": 28,
+    "name": "Among Us",
+    "gameUrl": "files/amongus/index.html",
+    "imageUrl": "img/amongus.webp",
+    "porter": "TS (plz dont @)",
+    "featured": true
   }
 ]

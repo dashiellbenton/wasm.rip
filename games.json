@@ -200,12 +200,19 @@
     "porter": "TS (plz dont @)",
     "featured": true
   },
-    {
+  {
     "id": 29,
     "name": "GTA 3",
     "gameUrl": "files/gta3/index.html",
     "imageUrl": "img/gta3.png",
     "porter": "shxyder",
     "featured": true
+  },
+  {
+    "id": 30,
+    "name": "Freddy In Space 2",
+    "gameUrl": "files/freddyinspace2/index.html",
+    "imageUrl": "img/fis2.png",
+    "porter": "turg"
   }
 ]

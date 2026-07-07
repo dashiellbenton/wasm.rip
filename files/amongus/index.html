@@ -18,7 +18,7 @@
       #unityLogo { position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); z-index: 5; pointer-events: none; }
     </style>
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/AmongUSWebPortByTSProllyFinalBuild6.json", {onProgress: function(g, p){ UnityProgress(g, p); if (p === 1) { var l = document.getElementById("unityLogo"); if (l) l.style.display = "none"; } }});
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/AmongUSWebPortByTSProllyFinalBuild9.json", {onProgress: function(g, p){ UnityProgress(g, p); if (p === 1) { var l = document.getElementById("unityLogo"); if (l) l.style.display = "none"; } }});
       function forceFill() {
         var c = document.querySelector("#gameContainer canvas");
         if (!c) { console.log("[fill] no canvas yet"); return; }
@@ -30,7 +30,7 @@
       }
       window.addEventListener("resize", forceFill);
       setInterval(forceFill, 250);
-	  // server url the default one but since its not on there (like this file is on wasm.rip) gotta point it to the server ok bye
+	  
 	  window.serverurl = "wss://nostaligafun.pages.dev";
     </script>
   </head>

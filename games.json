@@ -217,9 +217,10 @@
   },
   {
     "id": 31,
-    "name": "AntonBlast 64",
-    "gameUrl": "files/antonblast64/index.html",
-    "imageUrl": "img/anton.png",
-    "porter": "turg"
+    "name": "AntonBlast",
+    "gameUrl": "files/antonblast/index.html",
+    "imageUrl": "img/anton.jpg",
+    "porter": "turg",
+    "featured": true
   }
 ]

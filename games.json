@@ -174,7 +174,6 @@
     "gameUrl": "files/tchamp/index.html",
     "imageUrl": "img/tchamp/img.png",
     "porter": "gurtmuncher",
-    "featured": true
   },
     {
     "id": 26,
@@ -220,7 +219,6 @@
     "name": "AntonBlast",
     "gameUrl": "files/antonblast/index.html",
     "imageUrl": "img/anton.jpg",
-    "porter": "turg",
-    "featured": true
+    "porter": "turg"
   }
 ]

@@ -220,5 +220,6 @@
     "gameUrl": "files/antonblast/index.html",
     "imageUrl": "img/anton.jpg",
     "porter": "turg"
+    "featured": true
   }
 ]

@@ -219,6 +219,7 @@
     "name": "AntonBlast",
     "gameUrl": "files/antonblast/index.html",
     "imageUrl": "img/anton.jpg",
-    "porter": "turg"
+    "porter": "turg",
+    "featured": true
   }
 ]

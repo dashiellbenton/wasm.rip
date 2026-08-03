@@ -1,42 +1,197 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Among Us</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
+    <title>Among Us - wasm.rip</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
-      .webgl-content { width: 100%; height: 100%; margin: 0; position: absolute; top: 0; left: 0; transform: none; }
-      #gameContainer { width: 100% !important; height: 100% !important; position: absolute; top: 0; left: 0; }
-      #gameContainer canvas { width: 100vw !important; height: 100vh !important; display: block; object-fit: fill !important; }
-      .footer { display: none !important; }
-      .progress { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%); }
-      #unityLogo { position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); z-index: 5; pointer-events: none; }
-    </style>
-    <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/AmongUSWebPortByTSProllyFinalBuild9.json", {onProgress: function(g, p){ UnityProgress(g, p); if (p === 1) { var l = document.getElementById("unityLogo"); if (l) l.style.display = "none"; } }});
-      function forceFill() {
-        var c = document.querySelector("#gameContainer canvas");
-        if (!c) { console.log("[fill] no canvas yet"); return; }
-        var w = window.innerWidth, h = window.innerHeight;
-        c.width = w; c.height = h;
-        c.style.setProperty("width", "100vw", "important");
-        c.style.setProperty("height", "100vh", "important");
-        console.log("[fill] set", w, h, "-> now", c.width, c.height);
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      window.addEventListener("resize", forceFill);
-      setInterval(forceFill, 250);
-	  
-	  window.serverurl = "wss://nostaligafun.pages.dev";
-    </script>
+      body {
+        background: #0d0d0d;
+        color: #e5e5e5;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+        font-size: 1.44em;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 38px;
+      }
+      nav {
+        border-bottom: 1px solid #333;
+        background: #111;
+      }
+      nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px 38px;
+      }
+      nav span {
+        color: #ccc;
+      }
+      nav a {
+        color: #aaa;
+        text-decoration: none;
+        font-size: 17.5px;
+      }
+      nav a:hover {
+        color: #fff;
+      }
+      h1 {
+        font-size: 44px;
+        margin-bottom: 8px;
+      }
+      .tagline {
+        color: #888;
+        margin-bottom: 38px;
+        font-size: 17.5px;
+      }
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+      }
+      .game-card {
+        display: flex;
+        flex-direction: column;
+        background: #111;
+        border: 1px solid #333;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .game-card:hover {
+        transform: scale(1.02);
+        border-color: #555;
+      }
+      .game-card img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #000;
+        border-bottom: 1px solid #333;
+      }
+      .game-card .game-info {
+        padding: 18px;
+      }
+      .game-card .game-title {
+        font-size: 22px;
+        font-weight: bold;
+      }
+      .game-card .game-desc {
+        margin-top: 8px;
+        color: #aaa;
+        font-size: 16px;
+      }
+      .game-card.disabled {
+        opacity: 0.45;
+        cursor: default;
+        filter: grayscale(0.6);
+      }
+      .game-card.disabled:hover {
+        transform: none;
+        border-color: #333;
+      }
+      .game-card .wip-badge {
+        margin-left: 8px;
+      }
+      footer {
+        border-top: 1px solid #333;
+        margin-top: 80px;
+        padding: 25px 0;
+        font-size: 16px;
+        color: #777;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <div class="webgl-content">
-      <div id="gameContainer"></div>
-    </div>
+    <nav>
+      <div class="container">
+        <span>wasm.rip</span>
+        <a href="../../">back to ports</a>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <h1>Among Us Loader</h1>
+        <p class="tagline">try out either version!</p>
+
+        <div class="game-grid" id="game-grid"></div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">legacy port by ts &middot; 2026 port by shayder, notrexed, and q8j</div>
+    </footer>
+
+    <script>
+      const games = [
+        {
+          name: "Among Us - Legacy",
+          imageUrl: "../../img/amongus.webp",
+          url: "/files/amongus/legacy/",
+          desc: "Legacy Mono port of Among Us, by ts",
+        },
+        {
+          name: "Amongus 2026",
+          imageUrl: "../../img/amongus.webp",
+          url: null,
+          desc: "Latest, updated il2cpp port of Among Us, with impostor servers, ported by shayder, q8j, and notrexed.",
+          wip: true,
+        },
+      ];
+
+      const grid = document.getElementById("game-grid");
+
+      games.forEach((game) => {
+        const card = document.createElement("div");
+        card.classList.add("game-card");
+        if (game.wip) card.classList.add("disabled");
+
+        const img = document.createElement("img");
+        img.src = game.imageUrl;
+        img.alt = game.name;
+
+        const info = document.createElement("div");
+        info.classList.add("game-info");
+
+        const title = document.createElement("div");
+        title.classList.add("game-title");
+        title.textContent = game.name;
+        if (game.wip) {
+          const badge = document.createElement("span");
+          badge.classList.add("wip-badge");
+          badge.textContent = "W.I.P";
+          title.appendChild(badge);
+        }
+
+        const desc = document.createElement("div");
+        desc.classList.add("game-desc");
+        desc.textContent = game.desc;
+
+        info.appendChild(title);
+        info.appendChild(desc);
+        card.appendChild(img);
+        card.appendChild(info);
+
+        if (game.url) {
+          card.addEventListener("click", () => {
+            window.open(game.url, "_blank");
+          });
+        }
+
+        grid.appendChild(card);
+      });
+    </script>
   </body>
 </html>

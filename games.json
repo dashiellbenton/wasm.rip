@@ -155,13 +155,6 @@
     "porter": "dasher"
   },
   {
-    "id": 23,
-    "name": "The Adventures Of Sir Kicksalot",
-    "gameUrl": "files/sirkicksalot/index.html",
-    "imageUrl": "img/sirkicksalot.png",
-    "porter": "turg"
-  },
-  {
     "id": 24,
     "name": "Plauge Inc",
     "gameUrl": "files/plauge/index.html",
@@ -206,21 +199,6 @@
     "gameUrl": "files/gta3/index.html",
     "imageUrl": "img/gta3.png",
     "porter": "shxyder",
-    "featured": true
-  },
-  {
-    "id": 30,
-    "name": "Freddy In Space 2",
-    "gameUrl": "files/freddyinspace2/index.html",
-    "imageUrl": "img/fis2.png",
-    "porter": "turg"
-  },
-  {
-    "id": 31,
-    "name": "AntonBlast",
-    "gameUrl": "files/antonblast/index.html",
-    "imageUrl": "img/anton.jpg",
-    "porter": "turg",
     "featured": true
   }
 ]

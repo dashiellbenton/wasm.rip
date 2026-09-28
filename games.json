@@ -272,6 +272,7 @@
     "name": "Kerbal Space Program",
     "gameUrl": "https://ksp.ishotupa.school/",
     "imageUrl": "img/ksp.jpg",
-    "porter": "crackers"
-  },
+    "porter": "crackers",
+    "featured": true
+  }
 ]

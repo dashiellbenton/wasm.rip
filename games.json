@@ -266,5 +266,12 @@
     "gameUrl": "files/dudestop/index.html",
     "imageUrl": "img/dudestop.webp",
     "porter": "dasher"
-  }
+  },
+  {
+    "id": 38,
+    "name": "Kerbal Space Program",
+    "gameUrl": "https://ksp.ishotupa.school/",
+    "imageUrl": "img/ksp.jpg",
+    "porter": "crackers"
+  },
 ]

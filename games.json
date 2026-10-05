@@ -218,7 +218,7 @@
   },
   {
     "id": 31,
-    "name": "HowToFish",
+    "name": "How To Fish",
     "gameUrl": "files/HowToFish/HowToFish.html",
     "imageUrl": "img/fish.png",
     "porter": "NotRexed",
@@ -274,5 +274,12 @@
     "imageUrl": "img/ksp.jpg",
     "porter": "crackers",
     "featured": true
+  }
+  {
+    "id": 39,
+    "name": "Hill Climb Racing",
+    "gameUrl": "files/hcr/index.html",
+    "imageUrl": "img/hcr.png",
+    "porter": "NotRexed"
   }
 ]
